@@ -142,7 +142,15 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
         <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
           <tr>
             <td width="30%" class="style2" ><b class="style1">หน่วยงานที่รับการตรวจ :</b></td>
-			<td width="70%" class="style1" ><%=getDepartmentname(get_Audit_Depart)%></td>
+			<td width="70%" class="style1" ><%=getDepartmentname(get_Audit_Depart) %>&nbsp;&nbsp;
+			<%
+				if GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart) <> "0" then
+					response.write GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart)
+				else
+					response.write get_Audit_SubDepartElseName
+				end if
+			%>
+            </td>
           </tr>
         </table></td>
       </tr>

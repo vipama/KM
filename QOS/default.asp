@@ -163,7 +163,7 @@ var <%=getPopObject%>  =  window.open("<%=getPath%><%=getPopName%>","<%=getPopOb
   <li><a href="pdf/05_แผนปฏิบัติการ_57.pdf" target="_blank" class="MenuBarItemSubmenu">แผนการดำเนินงาน</a>
     <ul>
       <li><a href="pdf/แผนปฏิบัติการ_57.pdf" target="_blank">แผนปฏิบัติการประจำปี</a></li>
-      <li><a href="#">แผนการตรวจติดตามคุณภาพภายใน</a></li>
+      <li><a href="pdf/แผนการตรวจติดตาม.pdf" target="_blank">แผนการตรวจติดตามคุณภาพภายใน</a></li>
       <li><a href="#">แผนการประชุมทบทวนโดยฝ่ายบริหาร</a></li>
     </ul>
     </li>

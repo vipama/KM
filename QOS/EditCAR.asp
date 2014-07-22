@@ -252,7 +252,14 @@ if isEmpty(getCARPAR) = True  and  isEmpty(getFlagSave) = True and isEmpty(gethi
             <td colspan="2" class="style1" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="20%" class="style1" style="font-weight: bold" valign="top">หน่วยงานที่พบ :</td>
-                <td width="80%" class="style1" valign="top"><%=getDepartmentname(get_Audit_Depart)%></td>
+                <td width="80%" class="style1" valign="top"><%=getDepartmentname(get_Audit_Depart)%>&nbsp;&nbsp;
+				<%
+				if GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart) <> "0" then
+					response.write GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart)
+				else
+					response.write get_Audit_SubDepartElseName
+				end if
+				 %></td>
               </tr>
             </table></td>
             </tr>
