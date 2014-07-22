@@ -1,7 +1,6 @@
 <!--#include file="../../Config.inc.asp"-->
 <!--#include file="../../Functions.lib.asp"-->
 <%
-'-------------------Decare variable----------------------
 dim Dateddmmyyyy
 Dateddmmyyyy=Now()
 Datemmddyyyy=month(Dateddmmyyyy)&"/"&day(Dateddmmyyyy)&"/"&year(Dateddmmyyyy)
