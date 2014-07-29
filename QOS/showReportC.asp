@@ -65,8 +65,8 @@ end if
 				selectSubDepart = "checked=""checked"""
 			end if
 			
-		 RowCAR = GetCountRowQS("Tb_Internalaudit","ID","where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='NC' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' ")
-		 RowPAR = GetCountRowQS("Tb_Internalaudit","ID","where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='OBS' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' ")	
+		 RowCAR = GetCountRowQS("Tb_Internalaudit","ID","where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='NC' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' and Audit_SubDepart='"&get_Audit_SubDepart&"' ")
+		 RowPAR = GetCountRowQS("Tb_Internalaudit","ID","where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='OBS' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' and Audit_SubDepart='"&get_Audit_SubDepart&"' ")	
 			
 		 dim chkSelectNotFind
 		 chkSelectNotFind=""
@@ -249,7 +249,7 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เลขที่ดังนี้
                   <%
 				  		set recShow = Server.CreateObject("ADODB.RECORDSET")
-						sqlNoCARPAR = "select  No_Car_Par from Tb_InternalAudit where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='NC' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' "
+						sqlNoCARPAR = "select  No_Car_Par from Tb_InternalAudit where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='NC' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"' and Audit_Level='"&get_Audit_Level&"' and Audit_SubDepart='"&get_Audit_SubDepart&"' and Audit_Date=#"&Month(get_Audit_Date)&"/"&Day(get_Audit_Date)&"/"&Year(get_Audit_Date)&"# "
 						recShow.open sqlNoCARPAR,ConQS,1,3
 						countLP = 1
 						getLP = recShow.recordcount
@@ -274,7 +274,7 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เลขที่ดังนี้
                   <%
                   		set recShow = Server.CreateObject("ADODB.RECORDSET")
-						sqlNoCARPAR = "select  No_Car_Par from Tb_InternalAudit where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='OBS' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"'  and Audit_Level='"&get_Audit_Level&"' "
+						sqlNoCARPAR = "select  No_Car_Par from Tb_InternalAudit where M_code='"&get_M_Code&"' and Audit_Depart='"&get_Audit_Depart&"' and Audit_Doctype='OBS' and Audit_Year='"&(year(Dateddmmyyyy)+543)&"'  and Audit_Level='"&get_Audit_Level&"' and Audit_SubDepart='"&get_Audit_SubDepart&"' and Audit_Date=#"&Month(get_Audit_Date)&"/"&Day(get_Audit_Date)&"/"&Year(get_Audit_Date)&"#  "
 						recShow.open sqlNoCARPAR,ConQS,1,3
 						countLP = 1
 						getLP = recShow.recordcount
