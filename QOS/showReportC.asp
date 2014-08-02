@@ -85,7 +85,7 @@ end if
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874" />
-<title>รายงานผลวิเคราะห์</title>
+<title>Audit Report</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -133,22 +133,24 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
           <tr>
-            <td width="30%" class="style2"><b class="style1">ตรวจติดตามวันที่ :</b></td>
-            <td width="70%" class="style1"><%=get_Audit_Date%></td>
+            <td width="30%" class="style2" valign="top"><b class="style1">ตรวจติดตามวันที่ :</b></td>
+            <td width="70%" class="style1" valign="top"><%=get_Audit_Date%></td>
           </tr>
         </table></td>
       </tr>
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
           <tr>
-            <td width="30%" class="style2" ><b class="style1">หน่วยงานที่รับการตรวจ :</b></td>
-			<td width="70%" class="style1" ><%=getDepartmentname(get_Audit_Depart) %>&nbsp;&nbsp;
+            <td width="30%" class="style2" valign="top" ><b class="style1">หน่วยงานที่รับการตรวจ :</b></td>
+			<td width="70%" class="style1" valign="top" ><%=getDepartmentname(get_Audit_Depart) %>&nbsp;&nbsp;
 			<%
+			if get_Audit_Level <> "1" then
 				if GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart) <> "0" then
 					response.write GetSingleFieldQS("Tb_Subdepart","Name_Subdepart","where Subdepart_ID="&get_Audit_SubDepart)
 				else
 					response.write get_Audit_SubDepartElseName
 				end if
+			end if
 			%>
             </td>
           </tr>
@@ -157,8 +159,8 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
           <tr>
-            <td width="30%" class="style2"><b class="style1">ขอบเขตการตรวจ :</b></td>
-            <td width="70%" class="style1"><%=get_M_Code&" "&get_M_Name%></td>
+            <td width="30%" class="style2" valign="top"><b class="style1">ขอบเขตการตรวจ :</b></td>
+            <td width="70%" class="style1" valign="top"><%=get_M_Code&" "&get_M_Name%></td>
           </tr>
         </table></td>
       </tr>
@@ -167,50 +169,50 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
           <tr>
             <td width="30%" class="style1" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="style1"><b>&nbsp;ผู้ตรวจติดตาม :</b></td>
+                <td class="style1" valign="top"><b>&nbsp;ผู้ตรวจติดตาม :</b></td>
               </tr>
             </table></td>
-            <td width="70%"  class="style1" valign="middle"><table width="95%" border="0" cellspacing="0" cellpadding="5">
+            <td width="70%"  class="style1" valign="top"><table width="95%" border="0" cellspacing="0" cellpadding="5">
               <% if get_Audit_Name1 <> "" then %>
               <tr>
-                <td width="5%" class="style2">1</td>
-                <td width="65%" class="style1"><%=get_Audit_Name1%></td>
-                <td width="30%" class="style1">หัวหน้าผู้ตรวจติดตาม</td>
+                <td width="5%" class="style2" valign="top">1</td>
+                <td width="65%" class="style1" valign="top"><%=get_Audit_Name1%></td>
+                <td width="30%" class="style1" valign="top">หัวหน้าผู้ตรวจติดตาม</td>
               </tr>
               <% end if %>
               <% if get_Audit_Name2 <> "" then %>
               <tr>
-                <td class="style2">2</td>
-                <td class="style1"><%=get_Audit_Name2%></td>
-                <td class="style1">ผู้ตรวจติดตาม คนที่ 1</td>
+                <td class="style2" valign="top">2</td>
+                <td class="style1" valign="top"><%=get_Audit_Name2%></td>
+                <td class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 1</td>
               </tr>
               <% end if %>
               <% if get_Audit_Name3 <> "" then %>
               <tr>
                 <td class="style2">3</td>
-                <td class="style1"><%=get_Audit_Name3%></td>
+                <td class="style1" valign="top"><%=get_Audit_Name3%></td>
                 <td class="style1">ผู้ตรวจติดตาม คนที่ 2</td>
               </tr>
               <% end if %>
               <% if get_Audit_Name4 <> "" then %>
               <tr>
-                <td class="style2">4</td>
-                <td class="style1"><%=get_Audit_Name4%></td>
-                <td class="style1">ผู้ตรวจติดตาม คนที่ 3</td>
+                <td class="style2" valign="top">4</td>
+                <td class="style1" valign="top"><%=get_Audit_Name4%></td>
+                <td class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 3</td>
               </tr>
               <% end if %>
               <% if get_Audit_Name5 <> "" then %>
               <tr>
-                <td class="style2">5</td>
-                <td class="style1"><%=get_Audit_Name5%></td>
-                <td class="style1">ผู้ตรวจติดตาม คนที่ 4</td>
+                <td class="style2" valign="top">5</td>
+                <td class="style1" valign="top"><%=get_Audit_Name5%></td>
+                <td class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 4</td>
               </tr>
               <% end if %>
               <% if get_Audit_Name6 <> "" then %>
               <tr>
-                <td class="style2">6</td>
-                <td class="style1"><%=get_Audit_Name6%></td>
-                <td class="style1">ผู้ตรวจติดตาม คนที่ 5</td>
+                <td class="style2" valign="top">6</td>
+                <td class="style1" valign="top"><%=get_Audit_Name6%></td>
+                <td class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 5</td>
               </tr>
               <% end if %>
             </table></td>
@@ -219,14 +221,18 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       </tr>
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          
           <tr>
-            <td class="style1" style="font-weight: bold">&nbsp;ข้อคิดเห็นของผู้ตรวจติดตาม</td>
+            <td class="style1" valign="top">&nbsp;<strong>จุดเด่น :</strong></td>
+            <td class="style1" valign="top"><%=get_Audit_Advantages%></td>
           </tr>
           <tr>
-            <td class="style1">&nbsp;<strong>จุดเด่น :</strong> <span class="style1"><%=get_Audit_Advantages%></span></td>
+            <td class="style1" valign="top" >&nbsp;<strong>จุดด้อย :</strong></td>
+            <td class="style1"><%=get_Audit_Disadvantages%></td>
           </tr>
           <tr>
-            <td class="style1">&nbsp;<strong>จุดด้อย :</strong> <%=get_Audit_Disadvantages%></td>
+            <td width="15%" class="style1" style="font-weight: bold" valign="top">&nbsp;ข้อเสนอแนะ : </td>
+            <td width="85%" class="style1"  valign="top"><span class="style1" ><%=get_Audit_Descript%></span></td>
           </tr>
         </table></td>
       </tr>
@@ -234,14 +240,14 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
         <td><table width="100%" border="0" cellspacing="0" cellpadding="4">
           <tr>
             <td width="30%" class="style1" valign="top"><b>ผลการตรวจติดตาม :</b></td>
-            <td width="70%" class="style1"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+            <td width="70%" class="style1" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="style1"><label>
+                <td class="style1" valign="top"><label>
       <input type="checkbox" name="checkComplete" id="checkComplete" onClick="chkAllowCARPAR()" <%=chkSelectNotFind%>  disabled="disabled" />
       ไม่พบข้อบกพร่อง</label></td>
               </tr>
               <tr>
-                <td class="style1">
+                <td class="style1" valign="top">
                 <label>
                   <input type="checkbox" name="chkCAR" id="chkCAR" disabled="disabled"  <% if RowCAR <> 0 then response.write "checked=""checked""" end if%> />
                   พบข้อบกพร่องหรือความไม่สอดคล้องขึ้นในระบบคุณภาพ (NC)<br />
@@ -267,7 +273,7 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
                     </label></td>
               </tr>
               <tr>
-                <td class="style1"><label>
+                <td class="style1" valign="top"><label>
                   <input type="checkbox" name="chkPAR" id="chkPAR" disabled="disabled" <% if RowPAR <> 0 then response.write "checked=""checked""" end if%> />
                   พบแนวโน้มที่จะเกิดข้อบกพร่องหรือความไม่สอดคล้องในระบบคุณภาพ (OBS)<br />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จึงออกใบ PAR จำนวน  <%=RowPAR%>  ใบ  <% 'if RowPAR > 0 then %><%' end if %><br />
@@ -307,31 +313,31 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
         <td><span style="height:5px"><img src="images/spacer.gif" alt=""  height="5"/></span></td>
       </tr>
       <tr>
-        <td class="style1">ผู้ตรวจติดตาม :</td>
+        <td class="style3">ผู้ตรวจติดตาม :</td>
       </tr>
        <% if get_Audit_Name1 <> ""  then %>
       <tr>
         <td>
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
               <tr>
-                <td width="15%" class="style1">ลงชื่อ</td>
-                <td width="60%">&nbsp;</td>
-                <td width="25%" class="style1">หัวหน้าผู้ตรวจติดตาม</td>
+                <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+                <td width="60%" valign="top">&nbsp;</td>
+                <td width="25%" class="style1" valign="top">หัวหน้าผู้ตรวจติดตาม</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                     <tr>
-                      <td width="1%" class="style1">(</td>
-                      <td width="98%"class="style1" align="center"><%=get_Audit_Name1%></td>
-                      <td width="1%" class="style1">)</td>
+                      <td width="1%" class="style1" valign="top">(</td>
+                      <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name1%></td>
+                      <td width="1%" class="style1" valign="top">)</td>
                     </tr>
                 </table></td>
                 <td>&nbsp;</td>
               </tr>
               <tr>
-                <td class="style1">วันที่</td>
-                <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
+                <td class="style1" valign="top">วันที่</td>
+                <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
                 <td>&nbsp;</td>
               </tr>
             </table>        </td>
@@ -345,24 +351,24 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
         <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="3">
               <tr>
-                <td width="15%" class="style1">ลงชื่อ</td>
-                <td width="60%">&nbsp;</td>
-                <td width="25%" class="style1">ผู้ตรวจติดตาม คนที่ 1</td>
+                <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+                <td width="60%" valign="top">&nbsp;</td>
+                <td width="25%" class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 1</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                     <tr>
-                      <td width="1%" class="style1">(</td>
-                      <td width="98%"class="style1" align="center"><%=get_Audit_Name2%></td>
-                      <td width="1%" class="style1">)</td>
+                      <td width="1%" class="style1" valign="top">(</td>
+                      <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name2%></td>
+                      <td width="1%" class="style1" valign="top">)</td>
                     </tr>
                 </table></td>
                 <td>&nbsp;</td>
               </tr>
               <tr>
-                <td class="style1">วันที่</td>
-                <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
+                <td class="style1" valign="top">วันที่</td>
+                <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
                 <td>&nbsp;</td>
               </tr>
         </table>        </td>
@@ -375,24 +381,24 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">ผู้ตรวจติดตาม คนที่ 2</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 2</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center"><%=get_Audit_Name3%></td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name3%></td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
             <td>&nbsp;</td>
           </tr>
         </table></td>
@@ -405,24 +411,24 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">ผู้ตรวจติดตาม คนที่ 3</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 3</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center"><%=get_Audit_Name4%></td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name4%></td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
             <td>&nbsp;</td>
           </tr>
         </table></td>
@@ -435,25 +441,25 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">ผู้ตรวจติดตาม คนที่ 4</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 4</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center"><%=get_Audit_Name5%></td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name5%></td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
-            <td>&nbsp;</td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
+            <td valign="top">&nbsp;</td>
           </tr>
           <tr>
             <td class="style1">&nbsp;</td>
@@ -470,24 +476,24 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">ผู้ตรวจติดตาม คนที่ 5</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">ผู้ตรวจติดตาม คนที่ 5</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center"><%=get_Audit_Name6%></td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_Name6%></td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;<%=get_Audit_Date%></td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;<%=get_Audit_Date%></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
@@ -509,7 +515,7 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
         <td class="style1"><span style="height:5px"><img src="images/spacer.gif" alt=""  height="5"/></span></td>
       </tr>
       <tr>
-        <td class="style1">หน่วยงานที่รับการตรวจ :</td>
+        <td class="style1" style="font-weight: bold">หน่วยงานที่รับการตรวจ :</td>
       </tr>
       <tr>
         <td><span style="height:5px"><img src="images/spacer.gif" alt=""  height="5"/></span></td>
@@ -517,25 +523,25 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">ผู้รับการตรวจ</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">ผู้รับการตรวจ</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center">&nbsp;</td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top">&nbsp;</td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
           </tr>
         </table></td>
       </tr>
@@ -548,25 +554,25 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
             <td colspan="3" class="style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รับทราบรายงานการตรวจติดตาม วันที่..............................</td>
             </tr>
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%">&nbsp;</td>
-            <td width="25%" class="style1">หัวหน้าหน่วยงาน</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">หัวหน้าหน่วยงาน</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center">&nbsp;</td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top">&nbsp;</td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
           </tr>
         </table></td>
       </tr>
@@ -579,25 +585,25 @@ font-family:THSarabunPSK,Arial, Helvetica, sans-serif;
             <td colspan="3" class="style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รับทราบรายงานการตรวจติดตาม วันที่..............................</td>
           </tr>
           <tr>
-            <td width="15%" class="style1">ลงชื่อ</td>
-            <td width="60%" align="center" class="style1"><%=get_Audit_QMR_P1%></td>
-            <td width="25%" class="style1">QMR</td>
+            <td width="15%" class="style1" valign="top">ลงชื่อ</td>
+            <td width="60%" align="center" class="style1" valign="top">&nbsp;</td>
+            <td width="25%" class="style1" valign="top">QMR</td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="2">
                 <tr>
-                  <td width="1%" class="style1">(</td>
-                  <td width="98%"class="style1" align="center">&nbsp;</td>
-                  <td width="1%" class="style1">)</td>
+                  <td width="1%" class="style1" valign="top">(</td>
+                  <td width="98%"class="style1" align="center" valign="top"><%=get_Audit_QMR_P1%></td>
+                  <td width="1%" class="style1" valign="top">)</td>
                 </tr>
             </table></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td class="style1">วันที่</td>
-            <td class="style1" align="center"><%=get_Audit_Date%></td>
-            <td>&nbsp;</td>
+            <td class="style1" valign="top">วันที่</td>
+            <td class="style1" align="center" valign="top">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
           </tr>
         </table></td>
       </tr>
